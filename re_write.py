@@ -6,6 +6,8 @@ Description:
 import os, argparse
 import logging as log
 
+ignore = [".git", "Backup"]
+
 path = os.path.dirname(os.path.abspath(__file__)) + '\\Log\\recursive_writer.log'
 
 log.basicConfig(
@@ -34,5 +36,12 @@ args = args.parse_args()
 if args.test:
   log.critical("Test Running")
 
+
+# recursively searches all directories returning (dirpath, dirnames, filenames)
+# for i in os.walk("./"):
+#   print(i[0])
+
+# from glob import glob
+# print(glob("./**/", recursive = True))
 
 log.critical("Program Terminated")
