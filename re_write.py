@@ -12,7 +12,7 @@ import os, argparse
 import logging as log
 from glob import glob
 
-# Ignored files must use following format so that the root directory can be added to ignore
+# Ignored paths must use following format so that the root path can be added to ignore
 ignore = [".\\", ".\\Backup\\", ".\\log\\"]
 
 path = os.path.dirname(os.path.abspath(__file__)) + '\\Log\\recursive_writer.log'
@@ -47,17 +47,17 @@ folders = glob("./**/", recursive = True)
 
 print(folders)
 
-# Searches `folders` for directories that are not included in `ingore`
+# Searches `folders` for paths that are not included in `ignore`
 for i in folders:
-  blacklist_flag = False
+  ignore_flag = False
   # loops through ignore array
   for j in ignore:
-    # print(j)
+    # Checks if `folders[i]` and `ignore[j]` are the same, meaning the path is in the `ignore` array
     if j == i:
-      blacklist_flag = True
+      ignore_flag = True
       break
 
-  if blacklist_flag:
+  if ignore_flag:
     log.info("Ignored Folder: " + i)
     print("Ignored Folder: " + i)
   else:
