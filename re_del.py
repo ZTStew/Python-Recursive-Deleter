@@ -38,4 +38,11 @@ if args.test:
   log.critical("Test Running")
 
 
+  ### For File DELETER
+  # Runs through each file in the identified directory
+  # for j in glob(i+"*"):
+  #   # print(j)
+  #   print(os.path.isfile(j))
+  # print(glob(i+"*")
+
 log.critical("Program Terminated")
