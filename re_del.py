@@ -79,13 +79,13 @@ for i in folders:
   # Else the directory isn't listed in `ignore` and should be writen to
   else:
     log.info("Identified Folder: " + i)
-    print("Identified Folder: " + i)
+    # print("Identified Folder: " + i)
 
 
     # loops through each file found in each directory
     # Changes directory name to allow glob to be able to handle directories with '[]' in the name
     for file in glob(re.sub('([\[\]])','[\\1]',i) + "*"):
-      print(file)
+      # print(file)
       # print(os.path.splitext(file)[1])
       # print(Path(file).stem)
       # loops through the blacklisted files
