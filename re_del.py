@@ -48,10 +48,10 @@ log.critical("### ### ### V Program Starts V ### ### ###")
 
 args = argparse.ArgumentParser(description="Program recursively deletes all files found in Blacklist.log")
 args.add_argument(
-  "-t",
-  "--test",
-  type=int,
-  help="Declair if the application should run in test mode [0 -> production (default) | 1 -> test mode]."
+  "-f",
+  "--file",
+  type=str,
+  help="Specify a single file you would like to delete"
 )
 
 args = args.parse_args()
@@ -88,6 +88,15 @@ for i in folders:
       # print(file)
       # print(os.path.splitext(file)[1])
       # print(Path(file).stem)
+
+      # Handles when user specifies file in program call
+      if(args.file != None):
+        if Path(file).stem.lower() == Path(args.file).stem and os.path.splitext(file)[1].lower() == os.path.splitext(args.file)[1]:
+          log.info("File Deleted: " + file)
+          # print("Blacklisted File: " + file)
+          # removes the file
+          os.remove(file)
+
       # loops through the blacklisted files
       for i in range(len(blacklist)):
         # checks if `file` matches both the spelling and file extension of the blacklisted file
