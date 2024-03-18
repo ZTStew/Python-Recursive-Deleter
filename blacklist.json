@@ -1,3 +1,3 @@
 {
-  "blacklist": ["output.log", "test.txt", "readme.md", "test.mp3"]
+  "blacklist": ["readme.md", "readme.txt", "final.jpg"]
 }

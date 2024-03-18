@@ -10,6 +10,7 @@ import os, argparse, json
 import logging as log
 from glob import glob
 from pathlib import Path
+import re
 
 # function to clean the blacklist provided data
 def cleanBlacklist(blacklist):
@@ -78,11 +79,13 @@ for i in folders:
   # Else the directory isn't listed in `ignore` and should be writen to
   else:
     log.info("Identified Folder: " + i)
-    # print("Identified Folder: " + i)
+    print("Identified Folder: " + i)
+
 
     # loops through each file found in each directory
-    for file in glob(i + "*"):
-      # print(file)
+    # Changes directory name to allow glob to be able to handle directories with '[]' in the name
+    for file in glob(re.sub('([\[\]])','[\\1]',i) + "*"):
+      print(file)
       # print(os.path.splitext(file)[1])
       # print(Path(file).stem)
       # loops through the blacklisted files
