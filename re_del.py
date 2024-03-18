@@ -29,6 +29,7 @@ with open(os.path.dirname(os.path.abspath(__file__)) + '\\blacklist.json', 'r') 
 # cleans data in `blacklist`
 blacklist = cleanBlacklist(data["blacklist"])
 
+# Sets location of file that will contain the log file
 path = os.path.dirname(os.path.abspath(__file__)) + '\\Log\\recursive_deleter.log'
 
 log.basicConfig(
@@ -44,7 +45,7 @@ log.basicConfig(
 
 log.critical("### ### ### V Program Starts V ### ### ###")
 
-args = argparse.ArgumentParser()
+args = argparse.ArgumentParser(description="Program recursively deletes all files found in Blacklist.log")
 args.add_argument(
   "-t",
   "--test",
@@ -88,7 +89,7 @@ for i in folders:
       for i in range(len(blacklist)):
         # checks if `file` matches both the spelling and file extension of the blacklisted file
         if Path(file).stem.lower() == Path(blacklist[i]).stem and os.path.splitext(file)[1].lower() == os.path.splitext(blacklist[i])[1]:
-          log.info("Blacklisted File: " + file)
+          log.info("File Deleted: " + file)
           # print("Blacklisted File: " + file)
           # removes the file
           os.remove(file)
