@@ -9,10 +9,10 @@ re_write - Program is intended to be the inverse of `re_del.py` creating the tes
 
 --
 ### Requirements:
-- [ ] Program should read/delete files regardless of type
-- [ ] Program should ignore any folders with the name: `Backup`
-- [ ] Program should not look at the files in the execution root
-- [ ] Program should be written to read a `blacklist.json` file that contains a list of file names user would like to delete
+- [x] Program should read/delete files regardless of type
+- [x] Program should ignore any folders with the name: `Backup`
+- [x] Program should not look at the files in the execution root
+- [x] Program should be written to read a `blacklist.json` file that contains a list of file names user would like to delete
 
 ---
 ### Usage:
